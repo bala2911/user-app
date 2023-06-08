@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-interface User {
-  name: {
-    title: string;
-    first: string;
-    last: string;
-  };
-  email: string;
-}
-
 const App: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<any>(null);
+  const url = 'https://randomuser.me/api';
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get('https://randomuser.me/api');
+      const response = await axios.get(url);
+
       const userData = response.data.results[0];
       const { name, email } = userData;
+      console.log(name);
       const user = {
         name: {
           title: name.title,
