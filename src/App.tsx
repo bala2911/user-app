@@ -47,10 +47,12 @@ const App: React.FC = () => {
   const { name, email } = user;
 
   return (
-    <div>
-      <h1>{`${name.title} ${name.first} ${name.last}`}</h1>
+    <div className='container'>
+      <h1 className='title'>{`${name.title} ${name.first} ${name.last}`}</h1>
       <p>{email}</p>
-      <button onClick={handleRefresh}>Refresh</button>
+      <button className='button' onClick={handleRefresh}>
+        Refresh
+      </button>
     </div>
   );
 };
